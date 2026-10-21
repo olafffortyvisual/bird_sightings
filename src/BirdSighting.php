@@ -9,8 +9,7 @@ class BirdSighting{
         public string $sightingTime,
         public string $location,
         public string $species,
-        public string $description,
-        public string $created_at
+        public string $description
     ){
     }
 }

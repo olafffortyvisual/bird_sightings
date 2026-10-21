@@ -16,19 +16,19 @@
             <h1 class="fs1">Report a Sighting</h1>
             <p class="muted">Share your bird observation with our community!</p>
 
-            <?php if(isset($_GET['success']) && $_GET['success'] == 'true'){ ?>}
+            <?php if(isset($_GET['success']) && $_GET['success'] == '1'){ ?>}
                 <div class="alert alert-success" role="alert">
                     Bird sighting saves successfully!
                 </div>
-            <?php } ?>
+            <?php  ?>
             <form id="sightingForm" action="/save.php" method="post" class="card border-0 shadow-sm p-4">
                 <h3>Your Information</h3>
                 <p class="muted">Optional contact details</p>
 
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
-                        <label for="firstname" class="form-label">Name *</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First name" required>
+                        <label for="name" class="form-label">Name *</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="First name" required>
                     </div>
                     <div class="col-md-6">
                         <label for="email" class="form-label">Email *</label>
@@ -44,12 +44,12 @@
 
                 <div class="row g-3 mt-1">
                     <div class="col-md-6">
-                        <label for="date" class="form-label">Date *</label>
-                        <input type="date" class="form-control" id="date" name="date" required>
+                        <label for="sightingDate" class="form-label">Date *</label>
+                        <input type="date" class="form-control" id="sightingDate" name="sightingDate" required>
                     </div>
                     <div class="col-md-6">
-                        <label for="time" class="form-label">Time *</label>
-                        <input type="time" class="form-control" id="time" name="time" required>
+                        <label for="sightingTime" class="form-label">Time *</label>
+                        <input type="time" class="form-control" id="sightingTime" name="sightingTime"" required>
                     </div>
                     <div class="col-12">
                         <label for="location" class="form-label">Location *</label>

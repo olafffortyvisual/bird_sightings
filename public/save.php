@@ -1,9 +1,10 @@
 <?php
+
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../src/birdSighting.php';
 require_once __DIR__ . '/../src/SightingRepository.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (!$_SERVER["REQUEST_METHOD"] == "POST") {
     header('location: /report.php');
     exit;
 }
@@ -25,7 +26,7 @@ if( $sightingDate === '' || $sightingTime === '' ||
     $errors[] = 'Please complete all the required fields.';
 }
 
-if($email !== '' && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'Please enter a valid email address.';
 }
 
@@ -64,12 +65,15 @@ $sighting = new BirdSighting(
 $repository = new SightingRepository($pdo);
 
 try {
-    $repository->save($sighting);
+    $saved = $repository->save($sighting);
+    if (!$saved){
+        exit('Database insert failed.');
+    }
 }catch (PDOException $e) {
     error_log($e->getMessage());
     http_response_code(500);
-    exit('Unable to save sighting.');
+    exit('Unable to save sighting.' . $e->getMessage());
 }
 
-header('location: /report.php?success=1');
+header('Location: /report.php?success=1');
 exit;

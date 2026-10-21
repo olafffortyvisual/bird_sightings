@@ -8,12 +8,12 @@ class SightingRepository{
     }
 
     public function save(BirdSighting $birdSighting): bool{
-        $sql = "INSERT INTO sightings (
+        $sql = "INSERT INTO sighting (
                        name, 
                        email, 
                        phone, 
-                       sightingDate, 
-                       sightingTime, 
+                       sighting_date, 
+                       sighting_time, 
                        location, 
                        species, 
                        description)
