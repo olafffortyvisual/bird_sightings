@@ -10,9 +10,8 @@
               integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
               crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Playfair+Display:wght@500;600&display-swap"
-              rel="stylesheet"
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=volunteer_activism" />
+              rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
     </head>
 <body>
@@ -87,13 +86,14 @@
     </section>
     <section class="container pb-5">
         <div class="row g-4">
+
             <?php
                 $cards = [
-                    ['a', '01 / CONTRIBUTE', 'Share a sighting','Record the species, location, date and details.'
+                    ['volunteer_activism', '01 / CONTRIBUTE', 'Share a sighting','Record the species, location, date and details.'
                         ,'/report.php','Report a bird'],
-                    ['a', '02 / DISCOVER', 'Explore observation','Browse bird sightings shared by fellow nature.'
+                    ['visibility', '02 / DISCOVER', 'Explore observation','Browse bird sightings shared by fellow nature.'
                         ,'/sightings.php','View a sightings'],
-                    ['a', '03 / CONNECT', 'Protect our wildlife','Every observation  helps build awareness and appreciation.'
+                    ['connect_without_contact', '03 / CONNECT', 'Protect our wildlife','Every observation  helps build awareness and appreciation.'
                         ,'/report.php','Report a bird'],
 
                 ];
@@ -102,7 +102,11 @@
                 <div class="col-md-4">
                     <article class="card h-100 border-0 shadow-sm p-4">
                         <div class="card-body p-5">
-                            <div class="circle mb-4"><?= $icon ?></div>
+                            <div class="circle mb-4">
+                                <span class="material-symbols-outlined">
+                                    <?= $icon ?>
+                                </span>
+                            </div>
                             <small class="muted"><?= $label ?></small>
                             <h3 class="my-3"><?= $title ?></h3>
                             <p class="muted"><?= $description ?></p>
