@@ -32,4 +32,11 @@ class SightingRepository{
             ':description' => $birdSighting->description,
         ]);
     }
+
+    public function getAllSightings(): array{
+        $sql = "SELECT * FROM sighting ORDER BY sighting_date DESC, sighting_time DESC;";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

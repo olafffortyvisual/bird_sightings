@@ -1,6 +1,6 @@
 document.getElementById("sightingForm")?.addEventListener("submit", function(e) {
-    const date = document.getElementById("date").value;
-    const time = document.getElementById("time").value;
+    const date = document.getElementById("sightingDate").value;
+    const time = document.getElementById("sightingTime").value;
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
 

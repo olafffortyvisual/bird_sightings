@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../src/birdSighting.php';
 require_once __DIR__ . '/../src/SightingRepository.php';
@@ -44,10 +44,9 @@ if(!$dateTime ||
 }
 
 if(!empty($errors)) {
-    http_response_code(422);
-    foreach ($errors as $error) {
-        echo htmlspecialchars($error);
-    }
+    $_SESSION['errors'] = $errors;
+    $_SESSION['old_input'] = $_POST;
+    header('location: /report.php');
     exit;
 }
 
@@ -75,5 +74,7 @@ try {
     exit('Unable to save sighting.' . $e->getMessage());
 }
 
-header('Location: /report.php?success=1');
+unset($_SESSION['errors'], $_SESSION['old_input']);
+$_SESSION['success'] = "Bird sighting saved successfully.";
+header('Location: /report.php');
 exit;
